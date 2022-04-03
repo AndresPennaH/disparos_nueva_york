@@ -84,11 +84,11 @@ c5.text('Hora: '+ str (top_perp_name)+'; '+str(top_perp_num)+'%')
 c1,c2=st.columns((1,1))
 
 c1.markdown("<h3 style ='text-align: center; color: white;'>¿Dónde han ocurrido disparos en Nueva York?</h3>", unsafe_allow_html =True)
-year=c1.slider('Año en el que ocurrio el suceso', df.year.min(),df.year.max())
+year=c1.slider('Año en el que ocurrio el suceso', 2006,2020)
 c1.map(df[df['year']==year][['latitude','longitude']])
 
 c2.markdown("<h3 style ='text-align: center; color: white;'>¿A qué horas ocurren disparos en Nueva York?</h3>", unsafe_allow_html =True)
-hour=c2.slider('Hora en el que ocurrio el suceso', df.hour.min(),df.hour.max())
+hour=c2.slider('Hora en el que ocurrio el suceso',0 ,23)
 df2=df[df['hour']==hour]
 
 c2.write(pdk.Deck( 
